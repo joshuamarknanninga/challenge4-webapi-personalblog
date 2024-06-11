@@ -1,0 +1,19 @@
+#posts {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: 1em 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.dark-mode .post {
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+}

@@ -1,0 +1,74 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white; /* Default background for light mode */
+    color: black; /* Default text color for light mode */
+    overflow: hidden;
+}
+
+header, footer {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: relative;
+}
+
+header::before, footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* Background for the matrix effect */
+    z-index: -1;
+    opacity: 0.8;
+}
+
+main {
+    padding: 1em;
+}
+
+button {
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+.dark-mode {
+    background-color: #121212; /* Background for dark mode */
+    color: #ffffff; /* Text color for dark mode */
+}
+
+.dark-mode header::before, .dark-mode footer::before {
+    background: black;
+}
+
+body.light-mode {
+    background-color: white; /* Background for light mode */
+    color: black; /* Text color for light mode */
+}
+
+body.light-mode header::before, body.light-mode footer::before {
+    background: white;
+}
+
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: black; /* Background for the matrix effect */
+}
+
+.dynamic-shadow {
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.dark-mode .dynamic-shadow {
+    text-shadow: 2px 2px 5px #ffffff;
+}
