@@ -1,17 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const postsContainer = document.getElementById('posts');
+document.addEventListener('DOMContentLoaded', function () {
+    const postsContainer = document.querySelector('#posts');
     const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-    
-    blogPosts.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.classList.add('card', 'mb-3');
-        postElement.innerHTML = `
-            <div class="card-body">
-                <h2 class="card-title">${post.title}</h2>
-                <p class="card-text">${post.content}</p>
-                <p class="card-text"><small class="text-muted"><strong>Author:</strong> ${post.username}</small></p>
-            </div>
-        `;
-        postsContainer.appendChild(postElement);
-    });
+
+    if (blogPosts.length > 0) {
+        blogPosts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.classList.add('post');
+
+            postElement.innerHTML = `
+                <h3>${post.title}</h3>
+                <p><strong>${post.username}</strong> - ${post.timestamp}</p>
+                <p>${post.content}</p>
+            `;
+
+            postsContainer.appendChild(postElement);
+        });
+    } else {
+        postsContainer.innerHTML = '<p>No blog posts yet. Be the first to post!</p>';
+    }
 });
